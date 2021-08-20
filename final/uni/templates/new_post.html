@@ -1,0 +1,35 @@
+{% extends 'base2.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 card mb-4  mt-3 left  top">
+                <div class="card-body">
+                    <form action="{% url 'new_post' %}" method="POST" name="postEdit" id="postEdit">
+                        {% csrf_token %}
+                        <label for="post">Title</label>
+                        <div class="input-group">                 
+                            <input type="text" id="post" class="form-control" placeholder="Post" name="post"  required autofocus>
+                        </div>
+                        <hr>
+                        <label for="content">Content</label>
+                        <div class="form-label-group">
+                            <textarea rows="15" id="content" class="form-control" aria-label="With textarea" placeholder="Body" name="content" required></textarea>
+                        </div>
+                        <select name="status" id="status" class="custom-select">
+                            <option value="0">Draft</option>
+                            <option value="1">Publish</option>
+                        </select>
+                        <div class="row justify-content-end">
+                            <button class="btn btn-success text-uppercase font-weight-light mt-5 mb-2 " type="submit">Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% block sidebar %}
+                {% include 'sidebar.html' %}
+            {% endblock sidebar %}            
+        </div>
+    </div>
+
+{% endblock%}

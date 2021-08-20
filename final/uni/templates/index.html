@@ -1,0 +1,45 @@
+{% extends "base2.html" %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			{% if message %}
+		        <div class="col-md-8 mx-auto text-danger">
+		          	<h5>{{ message }}</h5>
+		        </div>
+          	{% endif %}
+		</div>
+		<div class="row" style="margin-top: 100px">
+			{% if user.first_name %}
+				<h1>Hello, {{ user.first_name|upper }}</h1>
+			{% else %}
+				<h1>Hello, {{ user.username|upper }}</h1>
+			{% endif %}
+		</div>
+			
+		<div class="row">
+			<ul>
+			    <li>Currently logged in as: {{ user.username }}</li>
+			</ul>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			              <!-- Illustrations -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+            	    <h6 class="m-0 font-weight-bold text-primary">Welcome</h6>
+                </div>
+                <div class="card-body">
+              	    <div class="text-center index-image" style="width: 100%; height: 250px; max-height: 100%">
+              	    	
+              	    </div>
+              	    <hr>
+                  	<p>This web site is the best experience for those who are searching to host a blog!</p>
+                </div>
+            </div>
+		</div>
+	</div>
+
+
+{% endblock %}

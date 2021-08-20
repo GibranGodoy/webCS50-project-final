@@ -1,0 +1,4 @@
+django
+django-summernote
+python-slugify
+django-form-utils
